@@ -1,20 +1,21 @@
-import Koa from 'koa';
-import _ from 'koa-route';
+import Koa from 'koa'
+import _ from 'koa-route'
+import mysql from 'mysql2/promise'
 
 import Users from '../api/routes/users'
 import Params from '../api/routes/params'
 
-import mysql from 'mysql2/promise'
+import DbCred from '../conf.js'
 
 const PORT = 3003;
 const app = new Koa();
 
 app.use(async function mysqlConnection(ctx, next) {
   ctx.state.db = await mysql.createConnection({
-    host: 'sql-dev02',
-    user: 'www-dev',
-    password: '',
-    database: 'test'
+    host: `${host}`,
+    user: `${user}`,
+    password: `${pass}`,
+    database: `${database}`
   });
 
   await next();
