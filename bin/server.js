@@ -12,10 +12,10 @@ const app = new Koa();
 
 app.use(async function mysqlConnection(ctx, next) {
   ctx.state.db = await mysql.createConnection({
-    host: `${host}`,
-    user: `${user}`,
-    password: `${pass}`,
-    database: `${database}`
+    host: DbCred.host,
+    user: DbCred.user,
+    password: DbCred.pass,
+    database: DbCred.database
   });
 
   await next();
@@ -32,6 +32,8 @@ app.use(_.delete('/users/:id', Users.remove));
 app.use(_.post('/users/:id', Users.update));
 
 app.use(_.get('/params/', Params.getAll));
+
+app.use(_.get('/params/:id', Params.get));
 
 var server = app.listen(PORT);
 
