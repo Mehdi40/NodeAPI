@@ -5,23 +5,20 @@ import mysql from 'mysql2/promise'
 import Users from '../api/routes/users'
 import Params from '../api/routes/params'
 
-import DbCred from '../conf.js'
+import Cred from '../conf.json'
 
-const PORT = 3000;
 const app = new Koa();
 
 app.use(async function mysqlConnection(ctx, next) {
   ctx.state.db = await mysql.createConnection({
-    host: DbCred.host,
-    user: DbCred.user,
-    password: DbCred.pass,
-    database: DbCred.database
+    host: Cred.host,
+    user: Cred.user,
+    password: Cred.pass,
+    database: Cred.database
   });
 
   await next();
 })
-
-app.use(_.get('/users/', Users.getAll));
 
 app.use(_.put('/users', Users.add));
 
@@ -35,6 +32,6 @@ app.use(_.get('/params/', Params.getAll));
 
 app.use(_.get('/params/:id', Params.get));
 
-var server = app.listen(PORT);
+var server = app.listen(Cred.server.port);
 
 module.exports = server;
