@@ -10,30 +10,19 @@ import DbCred from '../conf.test.json'
 const PORT = 3000;
 const app = new Koa();
 
-app.use(async function mysqlConnection(ctx, next) {
-  ctx.state.db = await mysql.createConnection({
+var knex = require('knex')({
+  client: 'mysql',
+  connection: {
     host: DbCred.host,
     user: DbCred.user,
     password: DbCred.pass,
     database: DbCred.database
-  });
+  }
+});
 
-  await next();
-})
+import bookshelf from 'bookshelf'
 
 app.use(_.get('/users/', Users.getAll));
-
-app.use(_.put('/users', Users.add));
-
-app.use(_.get('/users/:id', Users.get));
-
-app.use(_.delete('/users/:id', Users.remove));
-
-app.use(_.post('/users/:id', Users.update));
-
-app.use(_.get('/params/', Params.getAll));
-
-app.use(_.get('/params/:id', Params.get));
 
 var server = app.listen(PORT);
 
