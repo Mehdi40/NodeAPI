@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon bin/server.js --exec babel-node --presets babel-preset-env",
-    "test": "mocha 'tests/*/*.test.js' --compilers js:babel-core/register"
+    "test": "mocha 'tests/globalBefore.js' --compilers js:babel-core/register"
   },
   "author": "",
   "license": "ISC",

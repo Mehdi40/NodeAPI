@@ -2,8 +2,8 @@ import Koa from 'koa'
 import _ from 'koa-route'
 import mysql from 'mysql2/promise'
 
-import Users from '../api/routes/users'
-import Params from '../api/routes/params'
+import Users from '../../api/routes/users'
+import Params from '../../api/routes/params'
 
 import DbCred from '../conf.js'
 
