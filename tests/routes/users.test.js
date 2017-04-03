@@ -1,7 +1,7 @@
 var chai = require('chai');
 var should = chai.should();
 var chaiHttp = require('chai-http');
-var server = require('../bin/server');
+var server = require('../bin/server.test');
 
 chai.use(chaiHttp);
 
@@ -26,26 +26,26 @@ describe('GET /users/4895', function() {
       // On teste si l'User possède un ID
       res.body[0].should.have.property('id');
       res.body[0].id.should.be.a('number');
-      res.body[0].id.should.equal(4895);
+      res.body[0].id.should.equal(1);
 
       // On teste si l'User possède un email
       res.body[0].should.have.property('email');
       res.body[0].email.should.be.a('string');
-      res.body[0].email.should.equal('marocorse61@msn.com');
+      res.body[0].email.should.equal('pseudo@fai.fr');
 
       // On teste si l'User possède un username
       res.body[0].should.have.property('username');
       res.body[0].username.should.be.a('string');
-      res.body[0].username.should.equal('Jwhy');
+      res.body[0].username.should.equal('Pseudo');
 
       // On teste si l'User possède une date de création
       res.body[0].should.have.property('date_creation');
-      res.body[0].date_creation.should.be.equal('2010-09-19T11:56:26.000Z');
+      res.body[0].date_creation.should.be.equal('2010-09-19 11:56:26.000');
 
       // On teste si l'User possède un mot de passe
       res.body[0].should.have.property('pass');
       res.body[0].pass.should.be.a('string');
-      res.body[0].pass.should.be.equal('ef21b41addf21ba68917cef0fd9d7e05');
+      res.body[0].pass.should.be.equal('password');
       
       done();
     });

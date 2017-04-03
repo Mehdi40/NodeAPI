@@ -5,7 +5,7 @@ import mysql from 'mysql2/promise'
 import Users from '../../api/routes/users'
 import Params from '../../api/routes/params'
 
-import DbCred from '../conf.js'
+import DbCred from '../conf.test.js'
 
 const PORT = 3000;
 const app = new Koa();
