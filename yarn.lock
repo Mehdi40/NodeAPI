@@ -702,6 +702,13 @@ bluebird@^3.4.3, bluebird@^3.4.6:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
+bookshelf-schema@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/bookshelf-schema/-/bookshelf-schema-0.3.1.tgz#7d5e74d2b4f86dc815164452ad7bb5265a9fafcf"
+  dependencies:
+    checkit "^0.7.0"
+    inflection "^1.8.0"
+
 bookshelf@^0.10.3:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/bookshelf/-/bookshelf-0.10.3.tgz#72558204e83815f8e5bba6fd808702563e72b3e4"
@@ -800,6 +807,13 @@ chalk@~0.4.0:
     ansi-styles "~1.0.0"
     has-color "~0.1.0"
     strip-ansi "~0.1.0"
+
+checkit@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/checkit/-/checkit-0.7.0.tgz#14979abc93018346bfcfdcbabc19ab54c0bfd74a"
+  dependencies:
+    inherits "^2.0.1"
+    lodash "^4.0.0"
 
 chokidar@^1.4.3, chokidar@^1.6.1:
   version "1.6.1"
@@ -1452,7 +1466,7 @@ infinity-agent@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/infinity-agent/-/infinity-agent-2.0.3.tgz#45e0e2ff7a9eb030b27d62b74b3744b7a7ac4216"
 
-inflection@^1.5.1:
+inflection@^1.5.1, inflection@^1.8.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/inflection/-/inflection-1.12.0.tgz#a200935656d6f5f6bc4dc7502e1aecb703228416"
 
@@ -1859,7 +1873,7 @@ lodash@3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.13.1, lodash@^4.2.0, lodash@^4.6.0:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.2.0, lodash@^4.6.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 

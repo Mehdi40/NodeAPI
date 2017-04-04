@@ -1,10 +1,8 @@
-import knex from '../modelConf'
-var Bookshelf = require('bookshelf')(knex)
+var bookshelf = require('../bookshelf');
+import User from './Users'
 
-var Scout = Bookshelf.Model.extend({
-  tableName: 'scouts',
+var Scout = bookshelf.Model.extend({
+  tableName: 'sc_scout'
 });
 
-var Scouts = Bookshelf.Collection.extend({
-  model: Scout
-})
+module.exports = Scout

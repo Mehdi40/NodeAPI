@@ -1,14 +1,8 @@
-import knex from '../modelConf'
-var Bookshelf = require('bookshelf')(knex)
+var bookshelf = require('../bookshelf');
+import Scouts from './Scouts'
 
-var User = Bookshelf.Model.extend({
-  tableName: 'users',
-
-  scouts: function () {
-    return this.belongsToMany(Scout, 'user_id');
-  }
+var User = bookshelf.Model.extend({
+  tableName: 'sc_user'
 });
 
-var Users = Bookshelf.Collection.extend({
-  model: User
-})
+module.exports = User
