@@ -1,4 +1,4 @@
-var bookshelf = require('../bookshelf');
+var bookshelf = require('../../bin/database/bookshelf');
 import Collection from './Collections'
 
 var Product = bookshelf.Model.extend({

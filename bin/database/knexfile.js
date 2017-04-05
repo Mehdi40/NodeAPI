@@ -1,4 +1,4 @@
-import Cred from '../conf.json'
+import Cred from '../../conf.json'
 
 module.exports = { 
     client: 'mysql', 
@@ -7,5 +7,6 @@ module.exports = {
         user: Cred.database.user, 
         password: Cred.database.password, 
         database: Cred.database.database
-    } 
+    },
+    debug: true
 };

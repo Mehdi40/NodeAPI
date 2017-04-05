@@ -1,4 +1,4 @@
-var bookshelf = require('../bookshelf');
+var bookshelf = require('../../bin/database/bookshelf');
 import Scouts from './Scouts'
 
 var User = bookshelf.Model.extend({

@@ -1,32 +1,36 @@
-import Scout from '../models/Scouts'
+import Router from 'koa-joi-router'
+import ScoutsController from '../controllers/scouts'
 
-function hasId(data, id) {
-  return data.models.some(function (el) {
-    return el.attributes.user_id_scout == id;
-  });
-}
+const Joi = Router.Joi
+const router = new Router()
 
-async function get (ctx, id) {
-  await Scout.where('user_id', id).fetchAll().then((scouts) => { 
-    ctx.body = 'Liste des scouts : \n'
-    var i = 1
-    for (var scout of scouts.models) {
-      ctx.body += 'Scout n° ' + i + ' => ' + scout.attributes.id + '\n'
-      i++
-    }
-  })
-};
+router.route({
+  method: 'get',
+  path: '/users/scouts',
+  validate: {
+    body: {
+      currentUserId: Joi.number().integer()
+    },
+    type: 'json',
+  },
+  handler: async (ctx) => {
+    ctx.body = await ScoutsController.get(ctx.request.body.currentUserId)
+  },
+})
 
-async function add (ctx, user_id, id) {
-  await Scout.where('user_id', user_id).fetchAll().then((scouts) => {
-    if (hasId(scouts, id)) {
-      ctx.body = 'L\'utilisateur a déjà ajouté cet autre utilisateur en éclaireur.'
-    } else {
-      new Scout({'user_id': user_id, 'user_id_scout': id, 'state': 1}).save().then((scout) => {
-        ctx.body = 'L\'utilisateur a bien ajouté l\'autre utilisateur, identifié par l\'ID ' + id + ' à sa liste d\'éclaireurs.'
-      })
-    }
-  })
-}
+router.route({
+  method: 'post',
+  path: '/users/scouts',
+  validate: {
+    body: {
+      currentUserId: Joi.number().integer(),
+      scoutId: Joi.number().integer()
+    },
+    type: 'json',
+  },
+  handler: async (ctx) => {
+    ctx.body = await ScoutsController.add(ctx.request.body.currentUserId, ctx.request.body.scoutId)
+  },
+})
 
-export default { get, add };
+export default router;
