@@ -14,7 +14,9 @@ router.route({
     type: 'json',
   },
   handler: async (ctx) => {
-    ctx.body = await ScoutsController.get(ctx.request.body.currentUserId)
+    let scouts = await ScoutsController.get(ctx.request.body.currentUserId)
+    console.log('lol')
+    console.log(scouts)
   },
 })
 

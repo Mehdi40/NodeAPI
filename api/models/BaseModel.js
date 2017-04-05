@@ -13,7 +13,7 @@ export default class BaseModel {
   }
 
   currentDate () {
-    return moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+    return moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
   }
 
   find (column, data, fields = []) {
